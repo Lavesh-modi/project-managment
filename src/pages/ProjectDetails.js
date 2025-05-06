@@ -6,6 +6,7 @@ import { HTML5Backend } from 'react-dnd-html5-backend';
 import TaskColumn from '../components/TaskColumn';
 import TaskCard from '../components/TaskCard';
 import AddTaskForm from '../components/AddTaskForm';
+import ProjectAnalytics from '../components/ProjectAnalytics';
 import { moveTask } from '../store/slices/tasksSlice';
 import './ProjectDetails.css';
 
@@ -20,7 +21,7 @@ const ProjectDetails = () => {
   const tasks = useSelector(state => 
     state.tasks.tasks.filter(task => task.projectId === parseInt(id))
   );
-
+  console.log(tasks,"tasks--------------",project);
   const handleDrop = (taskId, newStatus) => {
     dispatch(moveTask({ taskId, newStatus }));
   };
@@ -30,10 +31,12 @@ const ProjectDetails = () => {
   }
 
   const columns = [
-    { id: 'todo', title: 'To Do' },
+    { id: 'todo', title: 'ToDo' },
     { id: 'in-progress', title: 'In Progress' },
     { id: 'done', title: 'Done' },
   ];
+
+  const projectWithTasks = { ...project, tasks };
 
   return (
     <DndProvider backend={HTML5Backend}>
@@ -50,6 +53,8 @@ const ProjectDetails = () => {
             Add New Task
           </button>
         </div>
+
+        <ProjectAnalytics project={projectWithTasks} />
 
         <div className="task-board">
           {columns.map(column => (

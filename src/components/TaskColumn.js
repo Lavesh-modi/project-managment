@@ -5,7 +5,10 @@ import './TaskColumn.css';
 const TaskColumn = ({ title, children, onDrop }) => {
   const [{ isOver }, drop] = useDrop({
     accept: 'TASK',
-    drop: (item) => onDrop(item.id, title.toLowerCase().replace(' ', '-')),
+    drop: (item) => {
+      console.log('Dropping into:', title, 'Item:', item);
+      onDrop(item.id, title.toLowerCase().replace(' ', '-'));
+    },
     collect: (monitor) => ({
       isOver: !!monitor.isOver(),
     }),

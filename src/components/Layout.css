@@ -10,7 +10,9 @@
   padding: 20px;
   transition: background-color 0.3s, color 0.3s;
 }
-
+.icon {
+  font-size: 1.2rem;
+}
 .logo h1 {
   font-size: 1.5rem;
   margin-bottom: 30px;
@@ -53,3 +55,9 @@
   color: var(--text-primary);
   transition: background-color 0.3s, color 0.3s;
 } 
+.nav-links li a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 500;
+}

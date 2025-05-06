@@ -15,6 +15,7 @@ const Dashboard = () => {
     'in-progress': tasks.filter(task => task.status === 'in-progress').length,
     done: tasks.filter(task => task.status === 'done').length,
   };
+  console.log(taskStats.todo,"taskStats--------------");
 
   const chartData = [
     { name: 'To Do', value: taskStats.todo },

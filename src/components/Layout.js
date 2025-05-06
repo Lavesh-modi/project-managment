@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { MdDashboard, MdFolderOpen, MdSettings } from 'react-icons/md';
+
 import './Layout.css';
 
 const Layout = ({ children }) => {
@@ -13,13 +15,22 @@ const Layout = ({ children }) => {
         </div>
         <ul className="nav-links">
           <li className={location.pathname === '/dashboard' ? 'active' : ''}>
-            <Link to="/dashboard">Dashboard</Link>
+          <Link to="/dashboard">
+      <MdDashboard className="icon" />
+      Dashboard
+    </Link>
           </li>
           <li className={location.pathname.startsWith('/project/') ? 'active' : ''}>
-            <Link to="/dashboard">Projects</Link>
+          <Link to="/dashboard">
+      <MdFolderOpen className="icon" />
+      Projects
+    </Link>
           </li>
           <li className={location.pathname === '/settings' ? 'active' : ''}>
-            <Link to="/settings">Settings</Link>
+          <Link to="/settings">
+      <MdSettings className="icon" />
+      Settings
+    </Link>
           </li>
         </ul>
       </nav>
