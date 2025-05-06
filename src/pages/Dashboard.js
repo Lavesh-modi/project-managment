@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip } from 'recharts';
+import AddProjectForm from '../components/AddProjectForm';
 import './Dashboard.css';
 
 const Dashboard = () => {
+  const [showAddProject, setShowAddProject] = useState(false);
   const projects = useSelector(state => state.projects.projects);
   const tasks = useSelector(state => state.tasks.tasks);
 
@@ -24,7 +26,15 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard">
-      <h1>Dashboard</h1>
+      <div className="dashboard-header">
+        <h1>Dashboard</h1>
+        <button 
+          className="add-project-button"
+          onClick={() => setShowAddProject(true)}
+        >
+          Add New Project
+        </button>
+      </div>
       
       <div className="dashboard-grid">
         <div className="projects-section">
@@ -67,6 +77,12 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
+
+      {showAddProject && (
+        <div className="modal-overlay">
+          <AddProjectForm onClose={() => setShowAddProject(false)} />
+        </div>
+      )}
     </div>
   );
 };

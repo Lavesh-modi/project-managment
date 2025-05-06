@@ -1,16 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import TaskColumn from '../components/TaskColumn';
 import TaskCard from '../components/TaskCard';
+import AddTaskForm from '../components/AddTaskForm';
 import { moveTask } from '../store/slices/tasksSlice';
 import './ProjectDetails.css';
 
 const ProjectDetails = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
+  const [showAddTask, setShowAddTask] = useState(false);
+  
   const project = useSelector(state => 
     state.projects.projects.find(p => p.id === parseInt(id))
   );
@@ -36,8 +39,16 @@ const ProjectDetails = () => {
     <DndProvider backend={HTML5Backend}>
       <div className="project-details">
         <div className="project-header">
-          <h1>{project.name}</h1>
-          <p>{project.description}</p>
+          <div>
+            <h1>{project.name}</h1>
+            <p>{project.description}</p>
+          </div>
+          <button 
+            className="add-task-button"
+            onClick={() => setShowAddTask(true)}
+          >
+            Add New Task
+          </button>
         </div>
 
         <div className="task-board">
@@ -56,6 +67,15 @@ const ProjectDetails = () => {
             </TaskColumn>
           ))}
         </div>
+
+        {showAddTask && (
+          <div className="modal-overlay">
+            <AddTaskForm 
+              projectId={parseInt(id)} 
+              onClose={() => setShowAddTask(false)} 
+            />
+          </div>
+        )}
       </div>
     </DndProvider>
   );
