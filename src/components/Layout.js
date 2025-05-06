@@ -15,7 +15,7 @@ const Layout = ({ children }) => {
 
       <nav className={`sidebar ${sidebarOpen ? 'open' : ''}`}>
         <div className="logo">
-          <h1>Project Dashboard</h1>
+          <h1>Tasklytic</h1>
         </div>
         <ul className="nav-links">
           <li className={location.pathname === '/dashboard' ? 'active' : ''}>
