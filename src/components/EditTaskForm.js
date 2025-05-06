@@ -2,6 +2,8 @@ import React from 'react';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 import { updateTask } from '../store/slices/tasksSlice';
 import './EditTaskForm.css';
 
@@ -36,6 +38,16 @@ const EditTaskForm = ({ task, onClose }) => {
     onClose();
   };
 
+  const modules = {
+    toolbar: [
+      [{ 'header': [1, 2, 3, false] }],
+      ['bold', 'italic', 'underline', 'strike'],
+      [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+      ['link', 'image'],
+      ['clean']
+    ],
+  };
+
   return (
     <div className="edit-task-form">
       <h2>Edit Task</h2>
@@ -44,7 +56,7 @@ const EditTaskForm = ({ task, onClose }) => {
         validationSchema={validationSchema}
         onSubmit={handleSubmit}
       >
-        {({ errors, touched }) => (
+        {({ errors, touched, setFieldValue, values }) => (
           <Form>
             <div className="form-group">
               <label htmlFor="title">Task Title</label>
@@ -61,10 +73,11 @@ const EditTaskForm = ({ task, onClose }) => {
 
             <div className="form-group">
               <label htmlFor="description">Description</label>
-              <Field
-                as="textarea"
-                id="description"
-                name="description"
+              <ReactQuill
+                theme="snow"
+                value={values.description}
+                onChange={(content) => setFieldValue('description', content)}
+                modules={modules}
                 className={errors.description && touched.description ? 'error' : ''}
               />
               {errors.description && touched.description && (

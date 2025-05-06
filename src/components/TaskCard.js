@@ -51,7 +51,10 @@ const TaskCard = ({ task }) => {
           </button>
         </div>
       </div>
-      <p className="task-description">{task.description}</p>
+      <div 
+        className="task-description"
+        dangerouslySetInnerHTML={{ __html: task.description }}
+      />
       <div className="task-footer">
         <span className={`task-status ${task.status.toLowerCase()}`}>
           {task.status}
