@@ -72,6 +72,18 @@
   font-weight: 600;
 }
 
+.pie-label-small {
+  font-size: 0.8rem;
+  fill: var(--text-primary, #222);
+  pointer-events: none;
+}
+.pie-label-centered {
+  font-size: 1rem;
+  font-weight: 600;
+  fill: var(--text-primary, #222);
+  pointer-events: none;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .analytics-grid {

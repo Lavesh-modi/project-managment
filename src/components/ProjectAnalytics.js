@@ -75,7 +75,37 @@ const ProjectAnalytics = ({ project }) => {
                   outerRadius={80}
                   fill="#8884d8"
                   dataKey="value"
-                  label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
+                  className="task-progress-pie"
+                  label={({ name, percent, x, y, cx, cy, index }) => {
+                    // Only show label if percent > 0
+                    if (percent === 1) {
+                      // Center label for 100%
+                      return (
+                        <text
+                          x={cx}
+                          y={cy}
+                          textAnchor="middle"
+                          dominantBaseline="middle"
+                          className="pie-label-centered"
+                        >
+                          {`${name} 100%`}
+                        </text>
+                      );
+                    }
+                    if (percent === 0) return null;
+                    // Default smaller label
+                    return (
+                      <text
+                        x={x}
+                        y={y}
+                        textAnchor="middle"
+                        dominantBaseline="middle"
+                        className="pie-label-small"
+                      >
+                        {`${name} ${(percent * 100).toFixed(0)}%`}
+                      </text>
+                    );
+                  }}
                 >
                   {pieData.map((entry, index) => (
                     <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />

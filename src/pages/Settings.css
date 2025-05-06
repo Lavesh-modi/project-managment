@@ -1,3 +1,10 @@
+:root {
+  --input-border: #e1e1e1;
+}
+[data-theme='dark'] {
+  --input-border: #444;
+}
+
 .settings {
   padding: 20px;
 }
@@ -8,7 +15,7 @@
 }
 
 .settings-section {
-  background: white;
+  background: var(--card-bg);
   border-radius: 8px;
   padding: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -41,7 +48,7 @@
 .form-group input,
 .form-group select {
   padding: 8px 12px;
-  border: 1px solid #e1e1e1;
+  border: 1px solid var(--input-border);
   border-radius: 4px;
   font-size: 1rem;
 }
