@@ -1,3 +1,10 @@
+:root {
+  --card-bg: #fff;
+}
+[data-theme='dark'] {
+  --card-bg: #23272f;
+}
+
 * {
   margin: 0;
   padding: 0;

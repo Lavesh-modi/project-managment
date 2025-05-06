@@ -4,7 +4,7 @@
 
 .settings h1 {
   margin-bottom: 30px;
-  color: #2c3e50;
+  color: var(--button-primary);
 }
 
 .settings-section {
@@ -17,7 +17,7 @@
 
 .settings-section h2 {
   margin: 0 0 20px 0;
-  color: #2c3e50;
+  color: var(--button-primary);
   font-size: 1.2rem;
 }
 
@@ -34,7 +34,7 @@
 }
 
 .form-group label {
-  color: #2c3e50;
+  color: var(--button-primary);
   font-weight: 500;
 }
 
@@ -52,13 +52,13 @@
 }
 
 .error-message {
-  color: #e74c3c;
+  color: var(--button-primary);
   font-size: 0.9rem;
   margin-top: 5px;
 }
 
 .save-button {
-  background-color: #3498db;
+    background-color: var(--button-primary);
   color: white;
   border: none;
   padding: 10px 20px;
@@ -69,5 +69,5 @@
 }
 
 .save-button:hover {
-  background-color: #2980b9;
+  background-color: var(--button-primary);
 } 

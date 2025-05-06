@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useDrag } from 'react-dnd';
-import { deleteTask } from '../redux/slices/taskSlice';
 import EditTaskForm from './EditTaskForm';
 import './TaskCard.css';
+import { deleteTask } from '../store/slices/tasksSlice';
 
 const TaskCard = ({ task }) => {
   const dispatch = useDispatch();

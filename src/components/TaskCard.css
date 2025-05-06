@@ -21,7 +21,7 @@
 
 .task-header h3 {
   margin: 0;
-  color: #2c3e50;
+  color:var(--button-primary);
   font-size: 1.1rem;
 }
 
@@ -41,12 +41,12 @@
 }
 
 .edit-button {
-  background-color: #3498db;
+  background-color: var(--button-primary);
   color: white;
 }
 
 .edit-button:hover {
-  background-color: #2980b9;
+  background-color: var(--button-primary);
 }
 
 .delete-button {
@@ -59,7 +59,7 @@
 }
 
 .task-description {
-  color: #666;
+  color: var(--text-primary);
   margin: 10px 0;
   font-size: 0.95rem;
   line-height: 1.4;
@@ -95,7 +95,7 @@
 }
 
 .task-assignee {
-  color: #666;
+    color: var(--text-primary);
   font-style: italic;
 }
 
