@@ -1,0 +1,30 @@
+.project-details {
+  padding: 20px;
+}
+
+.project-header {
+  margin-bottom: 30px;
+}
+
+.project-header h1 {
+  margin: 0 0 10px 0;
+  color: #2c3e50;
+}
+
+.project-header p {
+  margin: 0;
+  color: #7f8c8d;
+}
+
+.task-board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  min-height: calc(100vh - 200px);
+}
+
+@media (max-width: 1024px) {
+  .task-board {
+    grid-template-columns: 1fr;
+  }
+} 
